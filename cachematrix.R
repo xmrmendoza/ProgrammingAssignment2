@@ -4,8 +4,8 @@
 ## Write a short comment describing this function
 makeCacheMatrix <- function(g = matrix()) {
   yuh <- NULL
-  set <- function(y) {
-    g <<- y
+  set <- function(jop) {
+    g <<- jop
     yuh <<- NULL
   }
   get <- function() g
