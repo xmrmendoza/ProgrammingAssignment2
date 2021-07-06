@@ -3,28 +3,28 @@
 
 ## Write a short comment describing this function
 makeCacheMatrix <- function(g = matrix()) {
-  u <- NULL
+  yuh <- NULL
   set <- function(y){
     g <<- y
-    u <<- NULL
+    yuh <<- NULL
   }
   get <- function()g
-  setInverse <- function(inverse) u <<- inverse
-  getInverse <- function() u 
+  setInverse <- function(inverse) yuh <<- inverse
+  getInverse <- function() yuh 
   list(set = set, get = get, 
        setInverse = setInverse, 
        getInverse = getInverse)
 }
 cacheSolve <- function(g, ...) {
-  u <- g$getInverse()
-  if(!is.null(u)){
+  yuh <- g$getInverse()
+  if(!is.null(yuh)){
     message("returning inversed matrix")
-    return(u)
+    return(yuh)
   }
   mat <- g$get()
-  u <- solve(mat, ...)
-  g$setInverse(u)
-  u
+  yuh <- solve(mat, ...)
+  g$setInverse(yuh)
+  yuh
 }
 
 
