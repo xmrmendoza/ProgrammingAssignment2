@@ -2,28 +2,28 @@
 ## functions do
 
 ## Write a short comment describing this function
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(g = matrix()) {
   u <- NULL
   set <- function(y){
-    x <<- y
+    g <<- y
     u <<- NULL
   }
-  get <- function()x
+  get <- function()g
   setInverse <- function(inverse) u <<- inverse
   getInverse <- function() u 
   list(set = set, get = get, 
        setInverse = setInverse, 
        getInverse = getInverse)
 }
-cacheSolve <- function(x, ...) {
-  u <- x$getInverse()
+cacheSolve <- function(g, ...) {
+  u <- g$getInverse()
   if(!is.null(u)){
     message("returning inversed matrix")
     return(u)
   }
-  mat <- x$get()
+  mat <- g$get()
   u <- solve(mat, ...)
-  x$setInverse(u)
+  g$setInverse(u)
   u
 }
 
