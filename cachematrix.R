@@ -6,7 +6,7 @@
 makeCacheMatrix <- function(g = matrix()) {
   yuh <- NULL           #it sets up yuh as NULL
   set <- function(jop) {
-    g <<- jop
+    g <<- y
     yuh <<- NULL
   }
   get <- function() g  #it is used to obtain matrix g
@@ -17,15 +17,15 @@ makeCacheMatrix <- function(g = matrix()) {
        setinv = setIinv, 
        getinv = getinv)
 }
-#The function that is included is cacheSolve which is used to obtain cache data
+#The function includes cacheSolve which is used to obtain cache data
 cacheSolve <- function(g, ...) {
   yuh <- g$getinv()
   if(!is.null(yuh)){  #it assesses if it is null
-    message("returning inversed matrix")
+    message("getting inversed cached data")
     return(yuh)  #it returns the inverse value
   }
-  m <- g$get()
-  yuh <- solve(m, ...)
+  u <- g$get()
+  yuh <- solve(u, ...)
   g$setinv(yuh)
   yuh
 }
